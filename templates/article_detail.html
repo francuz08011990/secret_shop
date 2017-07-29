@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+
+<p class="black">{{ article.title }}</p>
+<br>
+<p class="m-0">{{ article.body }}</p>
+<br>
+{% for img in article.articleimage_set.all %}
+<div class="col-md-12" align="center">
+    <img src="{% url 'home' %}media/{{ img.image.name }}" class="artimg"/>
+</div>
+{% endfor %}
+
+<p class="text-muted" > {{ article.creator.get_full_name }} </p>
+
+{% endblock %}
+

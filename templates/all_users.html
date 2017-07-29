@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+<div class="content h-350 pt-2">
+    <div class="col-md-12">
+        {% for user in users %}
+        <div class='col-md-5 article ml-5 mb-2'>
+                <table class="w-100">
+                    <tbody>
+                        <tr>
+                            <td class='w-20 pr-2'>
+                                <img src="{% url 'home' %}media/{{ user.avatar.name }}" width="150px">
+                            </td>
+                            <td>
+                                <a class='m-0 black' href="{% url 'user_detail' user.id %}">
+                                    {{ user.user.get_full_name }}
+                                </a>
+                                <br>
+                                <small>
+                                    {{ user.phone }}
+                                </small>
+                                <br>
+                                <small class='text-muted'>
+                                    {{ user.region}}
+                                </small>
+                                <br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

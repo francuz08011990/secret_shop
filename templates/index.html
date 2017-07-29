@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block hero %}
+	<div class="hero"></div>
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid intro" id="about">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h1 class="chain">Новое поколение ретро велосипедов</h1>
+				<p class="text-intro"> «Ретро велосипеды привлекают своей индивидуальностью, именно поэтому они сейчас стали очень популярными !!! Возможность стать владельцем неповторимого велосипеда привлекает современную молодежь."
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8 section-1 nopadding" id="work">
+				<div class="logo-1 wp1"></div>
+			</div>
+			<div class="col-md-4 section-text nopadding">
+				<div class="wp4">
+					<h2 class="frame">Интересно...</h2>
+					<p> Велосипед, какой мы его знаем сейчас, с двумя колесами и традиционного размера, появился в 1900 году.</p>
+					<div class="thin-sep"></div>
+				</div>
+				<div class="small-featured-img seat-red">
+					<div class="arrow"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 section-text nopadding">
+				<div class="wp5">
+					<h2 class="mech">А вы знали ??</h2>
+					<p>Мировой рекорд скорости на велосипеде принадлежит 50-ти летнему (!!!) датчанину Фреду Ромпелбергу, и составляет 268,831 км/ч.</p>
+					<div class="thin-sep"></div>
+				</div>
+				<div class="small-featured-img seat-black">
+					<div class="arrow"></div>
+				</div>
+			</div>
+			<div class="col-md-8 section-2 nopadding">
+				<div class="logo-2 wp2"></div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 section-3">
+				<div class="logo-3 wp3"></div>
+			</div>
+			<div class="col-md-4 section-text nopadding">
+				<div class="wp6">
+					<h2 class="front-frame">Ничего себе !</h2>
+					<p>В мире всего около биллиона велосипедов, что в два раза больше, чем автомобилей и мотоциклов. Из них 400 миллионов велосипедов нашли своих хозяев в Китае. Каждый год в мире выпускается 50 миллионов велосипедов и 20 миллионов автомобилей и мотоциклов.</p>
+					<div class="thin-sep"></div>
+				</div>
+				<div class="small-featured-img frame-red">
+					<div class="arrow"></div>
+				</div>
+			</div>
+			<div class="col-md-4 section-4"></div>
+		</div>
+	</div>
+	<section class="flex-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<div class="flex-twitter-icon"></div>
+								<h2 class="twitter-post-username">
+								<a href="#">Ян Гринченко @aod</a> <span>/ 35 min</span>
+								</h2>
+								<p class="twitter-post">Был вчера в вашем магазине, все очень понравилось !</p>
+							</li>
+							<li>
+								<div class="flex-twitter-icon"></div>
+								<h2 class="twitter-post-username">
+								<a href="#">AOS New York @flex</a> <span>/ 48 min</span>
+								</h2>
+								<p class="twitter-post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut tellus ac nulla semper rhoncus. </p>
+							</li>
+							<li>
+								<div class="flex-twitter-icon"></div>
+								<h2 class="twitter-post-username">
+								<a href="#">Лапина Александра @lad</a> <span>/ 69 min</span>
+								</h2>
+								<p class="twitter-post">Хочу себе горный велосипед :)</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="discover">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<a href="{% url 'shop' %}" class="shop-btn">Посетить магазин</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% endblock %}

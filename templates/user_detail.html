@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-12 inner-bg">
+    <div class="col-md-4">
+        <img src="{% url 'home' %}media/{{ userprofile.avatar.name }}" class="artimg"/>
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-12 leftSide">
+            <h2 class="black">{{ userprofile.user.get_full_name }}</h2>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.get_male_display }}</h3>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.birthday }}</h3>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.country }}</h3>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.region }} область</h3>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.city }}</h3>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.address }}</h3>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.phone }}</h3>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ userprofile.biography }}</h3>
+        </div>
+    </div>
+
+    <div class='col-md-12 black'>
+        <h2  class="black center-block">Статьи пользователя:</h2>
+        <div class="col-md-12 black">
+            <hr/>
+        </div>
+        {% for article in userprofile.user.article_set.all %}
+            <div class='col-md-8 article ml-15 mb-2'>
+                <table class="w-100">
+                    <tbody>
+                        <tr>
+                            <td class='w-20 pr-2'>
+                                <img src="{% url 'home' %}media/{{ article.articleimage_set.first.image.name}}" class='article_miniature'>
+                            </td>
+                            <td>
+                                <a class='m-0 black' href="{% url 'article_detail' article.id %}">
+                                    {{ article.title }}
+                                </a>
+                                <br>
+                                <small>
+                                    {{ article.body }}
+                                </small>
+                                <br>
+                                <small class='text-muted'>
+                                    {{ article.creator.get_full_name }}
+                                </small>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
