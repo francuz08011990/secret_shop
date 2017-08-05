@@ -71,3 +71,20 @@
 .center-block {
     text-align: center;
 }
+
+.rightSide {
+    float: right;
+    background: #a3eebc;
+}
+
+.max_w-40 {
+    width: 50%;
+}
+
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.min_height-220 {
+    min-height: 220px;
+}

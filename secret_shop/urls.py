@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^shop/', include('shop.urls')),
     url(r'^contact/', contact, name='contact'),
 
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +\
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

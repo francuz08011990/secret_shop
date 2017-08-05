@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-
+from django.contrib.auth.models import User
 from .models import UserProfile
 
 
@@ -29,3 +28,26 @@ def user_detail(request, pk):
 def contact(request):
     template_name = 'contact.html'
     return render(request, template_name)
+
+
+def registration(request):
+    template_name = 'registration.html'
+    data = {}
+    if request.method == "POST":
+        user_data = request.POST
+        if user_data['password'] == user_data['confirm_password']:
+            try:
+                user = User.objects.create_user(
+                    first_name=user_data['first_name'],
+                    last_name=user_data['last_name'],
+                    password=user_data['password'],
+                    email=user_data['email'],
+                    username=user_data['email']
+                )
+                UserProfile.objects.create(user=user)
+                data['message'] = 'Вы успешно зарегистрировались на сайте!'
+            except:
+                data['error'] = 'Данный email уже зарегистрирован!'
+        else:
+            data['error'] = 'Пароли не совпадают'
+    return render(request, template_name, data)

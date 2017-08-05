@@ -7,12 +7,18 @@
 <div class="content h-350 pt-2">
     <div class="col-md-12">
         {% for user in users %}
-        <div class='col-md-5 article ml-5 mb-2'>
+        <div class='col-md-5 article ml-5 mb-2 min_height-220'>
                 <table class="w-100">
                     <tbody>
                         <tr>
                             <td class='w-20 pr-2'>
-                                <img src="{% url 'home' %}media/{{ user.avatar.name }}" width="150px">
+                                <a href="{% url 'user_detail' user.id %}">
+                                    {% if user.avatar %}
+                                        <img src="{% url 'home' %}media/{{ user.avatar.name }}" width="150px" class="mt-2">
+                                    {% else %}
+                                        <img src="{% url 'home' %}media/user.png" width="150px" class="mt-2">
+                                    {% endif %}
+                                </a>
                             </td>
                             <td>
                                 <a class='m-0 black' href="{% url 'user_detail' user.id %}">
@@ -24,7 +30,7 @@
                                 </small>
                                 <br>
                                 <small class='text-muted'>
-                                    {{ user.region}}
+                                    {{ user.region}} область
                                 </small>
                                 <br>
                             </td>

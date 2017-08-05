@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css">
 		<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css">
 		<link rel="stylesheet" href="{% static 'css/custom_styles.css' %}">
+		<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
 		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		{% block extrahead %}
 		{% endblock %}
@@ -25,6 +26,10 @@
 					<div class="pullcontainer">
 						<a href="#" id="pull"><i class="fa fa-bars fa-2x"></i></a>
 					</div>
+				</div>
+				<div class="col-md-12 mt-2">
+					<span><i class="fa fa-sign-in"></i> Вход</span> |
+					<span><a href="{% url 'registration' %}"><i class="fa fa-bicycle"></i> Регистрация</a></span>
 				</div>
 				<div class="row">
 					<div class="col-md-12 col-md-offset-2">

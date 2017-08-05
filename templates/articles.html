@@ -6,6 +6,11 @@
 {% block content %}
 <div class="content h-350 pt-2">
     <div class="col-md-12">
+        <div class="col-md-12">
+            <a href="{% url 'create_article' %}" class="btn rightSide"><i class="fa fa-plus-square" aria-hidden="true"></i>
+Создать статью</a>
+        </div>
+
         {% for article in articles %}
             <div class='col-md-8 article ml-15 mb-2'>
                 <table class="w-100">
