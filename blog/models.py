@@ -9,7 +9,7 @@ class Article(models.Model):
 
     class Meta:
         abstract = False
-        # unique_together = ['creator', 'title']
+        unique_together = ['creator', 'title']
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
 
@@ -18,7 +18,7 @@ class Article(models.Model):
 
 
 class ArticleImage(models.Model):
-    article = models.ForeignKey(Article, verbose_name='Избражение статьи')
+    article = models.ForeignKey(Article, verbose_name='Изображение статьи')
     image = models.ImageField(
         'Фото статьи',
         upload_to='user_uploads/article_images/',

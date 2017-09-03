@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from io import BytesIO
+from PIL import Image
 
-from .models import Article
+from django.shortcuts import render
+from django.core.files.base import ContentFile
+
+from .models import Article, ArticleImage
 
 
 def articles(request):
@@ -19,4 +23,20 @@ def article_detail(request, pk):
 
 def create_article(request):
     template_name = 'create_article.html'
-    return render(request, template_name)
+    data = {}
+    if request.method == "POST":
+        user_data = request.POST
+        files = request.FILES.getlist('image')
+        try:
+            article = Article.objects.create(
+                creator=request.user,
+                title=user_data['title'],
+                body=user_data['body'],
+            )
+            for file in files:
+                img = ArticleImage.objects.create(article=article)
+                img.image.save(file.name, file)
+                data['message'] = 'Вы успешно создали статью!'
+        except:
+            data['error'] = 'Статья с таким названием уже существует!'
+    return render(request, template_name, data)

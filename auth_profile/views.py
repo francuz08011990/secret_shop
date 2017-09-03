@@ -51,3 +51,9 @@ def registration(request):
         else:
             data['error'] = 'Пароли не совпадают'
     return render(request, template_name, data)
+
+
+def login(request):
+    template_name = 'login.html'
+    return render(request, template_name)
+

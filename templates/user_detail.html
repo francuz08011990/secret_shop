@@ -8,7 +8,11 @@
 
 <div class="col-md-12 inner-bg">
     <div class="col-md-4">
-        <img src="{% url 'home' %}media/{{ userprofile.avatar.name }}" class="artimg"/>
+        {% if userprofile.avatar %}
+            <img src="{% url 'home' %}media/{{ userprofile.avatar.name }}" class="artimg"/>
+        {% else %}
+            <img src="{% url 'home' %}media/user.png" width="300px" class="artimg">
+        {% endif %}
     </div>
     <div class="col-md-8">
         <div class="col-md-12 leftSide">
