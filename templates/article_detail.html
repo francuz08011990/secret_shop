@@ -15,8 +15,32 @@
     <img src="{% url 'home' %}media/{{ img.image.name }}" class="artimg"/>
 </div>
 {% endfor %}
-
 <p class="text-muted" > {{ article.creator.get_full_name }} </p>
 
+{% for comment in article.comment_set.all %}
+<div class='col-md-12  center-comment'>
+    <div class='col-md-11 border'>
+         {{ comment.body }}
+    </div>
+    <div class='col-md-3 text-muted mb-2'>
+         {{ comment.creator.get_full_name }} {{ comment.date_created }}
+    </div>
+</div>
+{% endfor %}
+
+{% if not user.is_anonymous %}
+    <div class="col-md-12 center-comment">
+        <form action="{% url 'article_detail' pk=article.id %}" method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="form-group col-md-12">
+                <textarea name="body" class="form-control"  rows="3"
+                      placeholder="Оставить комментарий..."></textarea>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-success">Сохранить</button>
+            </div>
+        </form>
+    </div>
+{% endif %}
 {% endblock %}
 

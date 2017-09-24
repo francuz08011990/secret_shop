@@ -88,3 +88,18 @@
 .min_height-220 {
     min-height: 220px;
 }
+
+.center-comment {
+    left: 18%;
+    width: 66%;
+}
+
+.border {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  font-size: 14px;
+  line-height: 1.42857;
+  padding: 6px 12px;
+}

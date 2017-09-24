@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
+
 from .models import UserProfile
 
 
@@ -30,7 +33,7 @@ def contact(request):
     return render(request, template_name)
 
 
-def registration(request):
+def registration_view(request):
     template_name = 'registration.html'
     data = {}
     if request.method == "POST":
@@ -53,7 +56,12 @@ def registration(request):
     return render(request, template_name, data)
 
 
-def login(request):
-    template_name = 'login.html'
-    return render(request, template_name)
+def login_view(request):
+    if request.method == "POST":
+        login_data = request.POST
+        user = authenticate(request, username=login_data['email'], password=login_data['password'])
+        if user:
+            login(request, user)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 

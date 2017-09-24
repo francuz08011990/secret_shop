@@ -4,7 +4,7 @@ from PIL import Image
 from django.shortcuts import render
 from django.core.files.base import ContentFile
 
-from .models import Article, ArticleImage
+from .models import Article, ArticleImage, Comment
 
 
 def articles(request):
@@ -18,6 +18,13 @@ def article_detail(request, pk):
     article = Article.objects.get(id=pk)
     template_name = 'article_detail.html'
     data = {'article': article}
+    if request.method == "POST":
+        user_data = request.POST
+        Comment.objects.create(
+            creator=request.user,
+            article=article,
+            body=user_data['body'],
+        )
     return render(request, template_name, data)
 
 
@@ -40,3 +47,4 @@ def create_article(request):
         except:
             data['error'] = 'Статья с таким названием уже существует!'
     return render(request, template_name, data)
+

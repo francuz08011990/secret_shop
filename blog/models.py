@@ -39,6 +39,7 @@ class Comment(models.Model):
     creator = models.ForeignKey(User, verbose_name='Комментатор')
     article = models.ForeignKey(Article, verbose_name='Статья')
     body = models.TextField('Комментарий', max_length=500)
+    date_created = models.DateTimeField('Дата создания', auto_now_add=True)
 
     class Meta:
         abstract = False
