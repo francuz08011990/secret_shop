@@ -12,18 +12,21 @@
 <br>
 {% for img in article.articleimage_set.all %}
 <div class="col-md-12" align="center">
-    <img src="{% url 'home' %}media/{{ img.image.name }}" class="artimg"/>
+    <img src="{{ img.image.url }}" class="artimg"/>
 </div>
 {% endfor %}
 <p class="text-muted" > {{ article.creator.get_full_name }} </p>
 
 {% for comment in article.comment_set.all %}
 <div class='col-md-12  center-comment'>
+    <div class='col-md-3 text-muted mb-2'>
+         {{ comment.creator.get_full_name }}
+    </div>
     <div class='col-md-11 border'>
          {{ comment.body }}
     </div>
-    <div class='col-md-3 text-muted mb-2'>
-         {{ comment.creator.get_full_name }} {{ comment.date_created }}
+    <div class="col-md-10 text-muted mb-2">
+        {{ comment.date_created }}
     </div>
 </div>
 {% endfor %}

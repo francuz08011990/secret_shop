@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+<div class="content h-350 pt-2">
+    <div class="col-md-12">
+        {% for seat in seats %}
+        <div class='col-md-5 article ml-5 mb-2 min_height-220'>
+                <table class="w-100">
+                    <tbody>
+                        <tr>
+                            <td class='w-20 pr-2'>
+                                <a href="{% url 'detail_limited_seat' seat.id %}">
+                                    <img src="{{ seat.image.url }}" width="200px" class="mt-2">
+                                </a>
+                            </td>
+                            <td>
+                                <a class='m-0 black' href="{% url 'detail_limited_seat' seat.id %}">
+                                    "{{ seat.brand }}"
+                                </a>
+                                <br>
+                                <small>
+                                    Цена: {{ seat.price }} грн
+                                </small>
+                                <br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

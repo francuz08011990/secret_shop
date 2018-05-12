@@ -1,0 +1,8 @@
+{% if messages %}
+    {% for message in messages %}
+        <b class="px-1 {% if message.tags == 'success' %}text-success{% else %}text-danger{% endif %}"
+           id="post_error">
+            {{ message }}
+        </b>
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+<div class="content h-350 pt-2">
+    <div class="col-md-12">
+        {% for accessory in accessories %}
+        <div class='col-md-5 article ml-5 mb-2 min_height-220'>
+                <table class="w-100">
+                    <tbody>
+                        <tr>
+                            <td class='w-20 pr-2'>
+                                <a href="{% url 'detail_accessory' accessory.id %}">
+                                    <img src="{{ accessory.image.url }}" width="200px" class="mt-2">
+                                </a>
+                            </td>
+                            <td>
+                                <a class='m-0 black' href="{% url 'detail_accessory' accessory.id %}">
+                                    "{{ accessory.brand }}"
+                                </a>
+                                <br>
+                                <small>
+                                    Цена: {{ accessory.price }} грн
+                                </small>
+                                <br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

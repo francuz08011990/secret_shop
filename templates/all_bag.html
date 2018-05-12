@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+<div class="content h-350 pt-2">
+    <div class="col-md-12">
+        {% for bag in bags %}
+        <div class='col-md-5 article ml-5 mb-2 min_height-220'>
+                <table class="w-100">
+                    <tbody>
+                        <tr>
+                            <td class='w-20 pr-2'>
+                                <a href="{% url 'detail_bag' bag.id %}">
+                                    <img src="{{ bag.image.url }}" width="200px" class="mt-2">
+                                </a>
+                            </td>
+                            <td>
+                                <a class='m-0 black' href="{% url 'detail_bag' bag.id %}">
+                                    "{{ bag.brand }}"
+                                </a>
+                                <br>
+                                <small>
+                                    Цена: {{ bag.price }} грн
+                                </small>
+                                <br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

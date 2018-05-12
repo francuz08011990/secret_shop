@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block hero %}
+{% endblock %}
+
+{% block content %}
+<div class="col-md-12 inner-bg">
+    <div class="col-md-4">
+            <img src="{{ bike.image.url }}" width="440px" class="artimg"/>
+    </div>
+    <div class="col-md-8">
+        <div class="col-md-12 leftSide">
+            <h1 class="black">{{ bike.brand }}</h1>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h2>Цена: {{ bike.price }} грн</h2>
+        </div>
+        <div class="col-md-12">
+            <a href="#" class="btn greenBtn">
+                <i class="fas fa-shopping-cart"></i> Купить </a>
+        </div>
+        <div class="col-md-12 leftSide">
+            <h3>{{ bike.body }}</h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ class ArticleImageAdmin(admin.TabularInline):
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    inlines = [ArticleImageAdmin,]
+    inlines = [ArticleImageAdmin]
 
 
 class CommentAdmin(admin.ModelAdmin):

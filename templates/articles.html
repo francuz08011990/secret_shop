@@ -7,8 +7,8 @@
 <div class="content h-350 pt-2">
     <div class="col-md-12">
         <div class="col-md-12">
-            <a href="{% url 'create_article' %}" class="btn rightSide"><i class="fa fa-plus-square" aria-hidden="true"></i>
-Создать статью</a>
+            <a href="{% url 'create_article' %}" class="btn rightSide">
+                <i class="fa fa-plus-square" aria-hidden="true"></i>Создать статью</a>
         </div>
 
         {% for article in articles %}
@@ -17,7 +17,9 @@
                     <tbody>
                         <tr>
                             <td class='w-20 pr-2'>
-                                <img src="{% url 'home' %}media/{{ article.articleimage_set.first.image.name}}" class='article_miniature'>
+                                <a href="{% url 'article_detail' article.id %}">
+                                    <img src="{{ article.articleimage_set.first.image.url}}" class='article_miniature'>
+                                </a>
                             </td>
                             <td>
                                 <a class='m-0 black' href="{% url 'article_detail' article.id %}">
@@ -25,7 +27,7 @@
                                 </a>
                                 <br>
                                 <small>
-                                    {{ article.body }}
+                                    {{ article.body|truncatechars:100 }}
                                 </small>
                                 <br>
                                 <small class='text-muted'>

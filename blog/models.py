@@ -10,7 +10,7 @@ class Article(models.Model):
     class Meta:
         abstract = False
         unique_together = ['creator', 'title']
-        verbose_name = 'Статья'
+        verbose_name = 'Статью'
         verbose_name_plural = 'Статьи'
 
     def __str__(self):
@@ -28,7 +28,7 @@ class ArticleImage(models.Model):
 
     class Meta:
         abstract = False
-        verbose_name = 'Избражение'
+        verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
 
     def __str__(self):
@@ -43,8 +43,8 @@ class Comment(models.Model):
 
     class Meta:
         abstract = False
-        verbose_name = 'Комментатор'
-        verbose_name_plural = 'Комментаторы'
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
 
     def __str__(self):
         return self.body[:50]
