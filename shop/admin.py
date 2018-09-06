@@ -3,32 +3,43 @@ from django.contrib import admin
 from .models import LeatherSeat, CustomSeat, LimitedSeat, Bag, Bike, Accessories
 
 
+@admin.register(LeatherSeat)
 class LeatherSeatAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('brand', 'price')
+    search_fields = ('brand', )
+    list_filter = ('price', )
 
 
+@admin.register(CustomSeat)
 class CustomSeatAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('brand', 'price')
+    search_fields = ('brand',)
+    list_filter = ('price',)
 
 
+@admin.register(LimitedSeat)
 class LimitedSeatAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('brand', 'price')
+    search_fields = ('brand',)
+    list_filter = ('price',)
 
 
+@admin.register(Bag)
 class BagAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('brand', 'price')
+    search_fields = ('brand',)
+    list_filter = ('price',)
 
 
+@admin.register(Bike)
 class BikeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('brand', 'price')
+    search_fields = ('brand',)
+    list_filter = ('price',)
 
 
+@admin.register(Accessories)
 class AccessoriesAdmin(admin.ModelAdmin):
-    pass
-
-admin.site.register(LeatherSeat, LeatherSeatAdmin)
-admin.site.register(CustomSeat, CustomSeatAdmin)
-admin.site.register(LimitedSeat, LimitedSeatAdmin)
-admin.site.register(Bag, BagAdmin)
-admin.site.register(Bike, BikeAdmin)
-admin.site.register(Accessories, AccessoriesAdmin)
+    list_display = ('brand', 'price')
+    search_fields = ('brand', )
+    list_filter = ('price',)

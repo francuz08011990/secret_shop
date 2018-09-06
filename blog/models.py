@@ -10,7 +10,7 @@ class Article(models.Model):
     class Meta:
         abstract = False
         unique_together = ['creator', 'title']
-        verbose_name = 'Статью'
+        verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
 
     def __str__(self):
